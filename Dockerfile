@@ -8,7 +8,7 @@ RUN cd scraper && npm ci --omit=dev
 
 # Install addon dependencies
 COPY addon/package*.json ./addon/
-RUN cd addon && npm ci --omit=dev
+RUN cd addon && npm install --omit=dev
 
 # Copy application source
 COPY scraper ./scraper
