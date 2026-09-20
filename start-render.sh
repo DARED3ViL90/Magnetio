@@ -2,17 +2,17 @@
 
 set -e
 
-echo "Starting Magnetio scraper..."
+echo "Starting Magnetio scraper on port 8080..."
 
 cd /app/scraper
-node index.js &
+PORT=8080 node index.js &
 SCRAPER_PID=$!
 
 echo "Scraper started with PID $SCRAPER_PID"
 
 sleep 2
 
-echo "Starting Magnetio addon..."
+echo "Starting Magnetio addon on port 10000..."
 
 cd /app/addon
-exec node index.js
+PORT=10000 node index.js
